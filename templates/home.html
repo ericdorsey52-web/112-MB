@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Message Board{% endblock %}
+
+{% block content %}
+  <h2>Welcome</h2>
+  <p>This is a simple Message Board app. View or add posts on the <a href="{{ url_for('posts_page') }}">Posts</a> page.</p>
+
+  {% if posts %}
+    <section>
+      <h3>Recent Posts</h3>
+      <ul class="post-list">
+      {% for p in posts[:5] %}
+        <li>
+          <a href="{{ url_for('view_post', post_id=p.id) }}">{{ p.title }}</a>
+          <span class="meta">{{ p.created }}</span>
+        </li>
+      {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'board/base.html' %}
+
+{% block title %}Posts - Message Board{% endblock %}
+
+{% block content %}
+  <h2>Posts</h2>
+
+  <section class="new-post">
+    <h3>Create a Post</h3>
+    <form method="post" action="{% url 'posts' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Publish</button>
+    </form>
+  </section>
+
+  <section class="all-posts">
+    <h3>All Posts</h3>
+    {% if posts %}
+      <ul class="post-list">
+      {% for p in posts %}
+        <li>
+          <a href="{% url 'post_detail' p.pk %}">{{ p.title }}</a>
+          <span class="meta">{{ p.created }}</span>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No posts yet. Create the first one above!</p>
+    {% endif %}
+  </section>
+{% endblock %}

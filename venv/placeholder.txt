@@ -1,0 +1,8 @@
+This folder is a placeholder for a Python virtual environment.
+To create a venv here (Windows PowerShell):
+
+python -m venv venv
+venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+(We keep this file so the folder is present in the repository.)

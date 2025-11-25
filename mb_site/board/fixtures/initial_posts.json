@@ -1,0 +1,20 @@
+[
+  {
+    "model": "board.post",
+    "pk": 1,
+    "fields": {
+      "title": "Welcome to the Message Board",
+      "body": "This is a seeded post created by the initial data fixture.",
+      "created": "2025-11-25T00:00:00Z"
+    }
+  },
+  {
+    "model": "board.post",
+    "pk": 2,
+    "fields": {
+      "title": "Second Post",
+      "body": "Another example post to show the board.",
+      "created": "2025-11-24T12:00:00Z"
+    }
+  }
+]
