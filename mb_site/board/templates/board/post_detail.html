@@ -7,6 +7,14 @@
     <h2>{{ post.title }}</h2>
     <p class="meta">{{ post.created }}</p>
     <div class="body">{{ post.body|linebreaksbr }}</div>
-    <p><a href="{% url 'posts' %}">Back to posts</a></p>
+    <div class="post-actions">
+      <p><a href="{% url 'posts' %}">Back to posts</a></p>
+      {% if user.is_staff %}
+        <p>
+          <a href="{% url 'edit_post' post.pk %}">Edit</a> |
+          <a href="{% url 'delete_post' post.pk %}">Delete</a>
+        </p>
+      {% endif %}
+    </div>
   </article>
 {% endblock %}
